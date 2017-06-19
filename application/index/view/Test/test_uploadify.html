@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/css/uploadify.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<input type="file" name="images" id="upload" >
+<script src="/static/js/jquery-2.0.0.min.js"></script>
+<script src="/static/js/jquery.uploadify.min.js"></script>
+<script>
+ $(function (){
+     $('#upload').uploadify({
+                     width   :  120,
+                     height  :  30,
+                     swf      : '/static/images/uploadify.swf',
+                     uploader : '{:url("test_uploadify")}',
+                     buttonText : 'upload',
+                     uploadLimit : 4,
+                     removeTimeout : 1,
+                     preventCaching  : true,
+                     fileSizeLimit  :  4100
+     });
+     $("#SWFUpload_0").css({                  //设置按钮样式，根据插件文档进行修改
+         'position' :'absolute',
+         'top': 20,
+         'left': 35,
+         'z-index'  : 1
+     });
+
+ })
+</script>
+</body>
+</html>

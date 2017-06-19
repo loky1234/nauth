@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/css/app.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/common.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="m-auth auth-login">
+    <div class="auth-slogan">新增类型</div>
+
+    <form class="ui form" data-action="register" method="post" autocomplete="off" action="{:url('addType')}">
+        <div class="ui error message"></div>
+        <div class="field">
+            <input class="text-input" type="text" name="name" placeholder="分组名称"/>
+        </div>
+        <div class="field">
+            <input class="text-input" type="text" name="desc" placeholder="分组描述"/>
+        </div>
+        <div class="field">
+            <button class="ui button green fluid" type="submit" value="添加">添加</button>
+        </div>
+    </form>
+</div>
+<script src="/static/js/jquery-2.0.0.min.js"></script>
+<script>
+    $(function (){
+        $('.auth-login form').submit(function (){
+            var data = {},url;
+            data.name = this.name.value;
+            data.desc = this.desc.value;
+            url = this.action;
+            $.ajax({
+                     url : url,
+                     type : 'post',
+                     data :data,
+                     dataType:'json',
+                     success : function (result){
+                         if(result.errcode){
+                           return  alert('添加类型失败');
+                         }
+                         location.href = result.url;
+                     }
+            });
+           return false;
+
+        });
+    })
+</script>
+</body>
+</html>
