@@ -55,4 +55,9 @@ class Groups extends Basic
         $result = $this->find($map);
         return empty($result)?false:true;
     }
+    public function getRulesOfGroup($gid)
+    {
+         $group_info = $this->getGroupInfo($gid);
+         return isset($groud_info['rules'])?$group_info['rules']:false;
+    }
 }
