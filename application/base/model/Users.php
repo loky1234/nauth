@@ -99,7 +99,6 @@ class Users extends Basic
                    if($access){
                        return true;
                    }
-
                }else{
                    return true;
                }
@@ -107,4 +106,11 @@ class Users extends Basic
        }
         return false;
     }
+   public function getRuleInfoByAccessURL($access_url)
+   {
+
+
+
+
+   }
 }

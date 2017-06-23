@@ -12,8 +12,17 @@ class Auth extends Basic
 {
     protected  $table_name = 'auth';
 
-    public function getMenu($userID)
+    public function getMenu($uid,$access_url='')
     {
+       if(!isRoot($uid)){
+           $user = new Users;
+           $rules = $user->getRulesOfUser($uid);
+           $map['id'] = ['in',$rules];
+       }
+       if(!isProviderModel()){
+           $map['is_provider'] = 0;
+       }
+        $map['hide'] = 0;
 
 
 

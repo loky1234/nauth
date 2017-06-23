@@ -247,4 +247,6 @@ return [
     'error_img' => ROOT_PATH.'..\images\error.jpg',
     'upload_path'=>ROOT_PATH.'images\\',
     'passwdencode' => 'md5',
+    'run_model'    => 'PROVIDER',//运行模式
+    'root_tag'     => 1,//
 ];
